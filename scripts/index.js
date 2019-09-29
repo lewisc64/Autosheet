@@ -4,12 +4,78 @@ function setFontSize(elem) {
 
 function copyDimensionsForCanvas(source, canvas) {
   canvas.width = source.clientWidth;
-  canvas.height = source.clientWidth;
+  canvas.height = source.clientHeight;
+}
+
+function save() {
+  
+  packed = {
+    ids: {},
+    scribbles: {},
+  };
+  
+  for (let canvas of document.querySelectorAll(".sheet > canvas")) {
+    packed.scribbles[canvas.parentNode.id] = canvas.toDataURL("image/png");
+  }
+  
+  for (let elem of document.querySelectorAll(".sheet > input")) {
+    if (getControlById(elem.id).editable) {
+      packed.ids[elem.id] = elem.value;
+    }
+  }
+  
+  let a = document.createElement("a");
+  let file = new Blob([JSON.stringify(packed, null, 2)], {type: "text/plain"});
+  a.href = URL.createObjectURL(file);
+  
+  let name = document.getElementById("name").value;
+  
+  a.download = (name == "" ? "unnamed" : name.toLowerCase().replace(/ /g, "-")) + ".json";
+  a.click();
+}
+
+function importJsonContent(content) {
+  
+  packed = JSON.parse(content);
+  
+  for (let id in packed.ids) {
+    let value = packed.ids[id];
+    elem = document.getElementById(id);
+    elem.value = value;
+    elem.dispatchEvent(new Event("input"));
+  }
+  
+  for (let pageId in packed.scribbles) {
+    let canvas = document.querySelector("#" + pageId + " > canvas");
+    let ctx = canvas.getContext("2d");
+    
+    let img = new Image();
+    img.onload = function() {
+      ctx.drawImage(img, 0, 0);
+    };
+    img.src = packed.scribbles[pageId];
+  }
+}
+
+function importSheet() {
+  let input = document.createElement("input");
+  input.type = "file";
+  input.click();
+  input.onchange = (e) => { 
+    let file = e.target.files[0]; 
+
+    let reader = new FileReader();
+    reader.readAsText(file, "utf-8");
+
+    reader.onload = readerEvent => {
+      importJsonContent(readerEvent.target.result);
+    }
+  }
 }
 
 function setup() {
   
-  for (let control of controls) {
+  for (let control of controlsList) {
     if (!control.visible) {
       continue;
     }
@@ -31,9 +97,8 @@ function setup() {
     
     document.getElementById("page1").appendChild(elem);
   }
-  for (let control of controls) {
-    control.update();
-  }
+  updateAllControls();
+  
   for (let page of document.querySelectorAll(".sheet")) {
     let img = page.querySelector("img");
     let canvas = document.createElement("canvas");
@@ -63,6 +128,13 @@ function setup() {
       canvas.style["cursor"] = "crosshair";
     }
     mode = "eraser";
+  });
+  
+  document.getElementById("save").addEventListener("click", function () {
+    save();
+  });
+  document.getElementById("import").addEventListener("click", function () {
+    importSheet();
   });
 }
 

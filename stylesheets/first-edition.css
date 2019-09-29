@@ -1,0 +1,626 @@
+#name, #alignment, #player {
+  bottom: 93.7%;
+}
+
+#name {
+  left: 39.5%;
+  width: 20.5%;
+}
+
+#alignment {
+  left: 61.3%;
+  width: 6.7%;
+}
+
+#player {
+  left: 69.5%;
+  width: 22.4%
+}
+
+#class-and-level, #deity, #homeland {
+  bottom: 91.3%;
+}
+
+#class-and-level {
+  left: 39.5%;
+  width: 28.6%;
+}
+
+#deity {
+  left: 69.5%;
+  width: 12.7%;
+}
+
+#homeland {
+  left: 82.9%;
+  width: 9%
+}
+
+#race, #size, #gender, #age, #height, #weight, #hair, #eyes {
+  bottom: 88.8%;
+}
+
+#race {
+  left: 39.5%;
+  width: 13%
+}
+
+#size {
+  left: 53.3%;
+  width: 4.7%;
+}
+
+#gender {
+  left: 59%;
+  width: 4.8%;
+}
+
+#age {
+  left: 64.6%;
+  width: 3.7%;
+}
+
+#height {
+  left: 69.5%;
+  width: 5.4%;
+}
+
+#weight {
+  left: 75.7%;
+  width: 5.7%;
+}
+
+#hair {
+  left: 81.9%;
+  width: 5.2%;
+}
+
+#eyes {
+  left: 87.6%;
+  width: 4.6%;
+}
+
+#hp-total, #hp-damage-reduction {
+  bottom: 84.8%;
+}
+
+#hp-total {
+  left: 40%;
+  width: 4.4%;
+}
+
+#hp-damage-reduction {
+  left: 47.8%;
+  width: 3%
+}
+
+#hp-current {
+  bottom: 81.4%;
+  left: 30%;
+  width: 21%;
+}
+
+#hp-nonlethal {
+  bottom: 76%;
+  left: 30%;
+  width: 21%
+}
+
+#speed, #speed-squares, #speed-with-armor, #speed-squares-with-armor {
+  bottom: 84.8%;
+}
+
+#speed {
+  left: 60.4%;
+  width: 4%;
+}
+
+#speed-squares {
+  left: 66.5%;
+  width: 3.7%;
+}
+
+#speed-with-armor {
+  left: 73.5%;
+  width: 4%;
+}
+
+#speed-squares-with-armor {
+  left: 79.6%;
+  width: 3.7%;
+}
+
+#speed-fly, #speed-fly-maneuverability, #speed-swim, #speed-climb, #speed-burrow {
+  bottom: 81.7%;
+}
+
+#speed-fly {
+  left: 53%;
+  width: 4%;
+}
+
+#speed-fly-maneuverability {
+  left: 60%;
+  width: 4.4%;
+}
+
+#speed-swim {
+  left: 66%;
+  width: 4%;
+}
+
+#speed-climb {
+  left: 72.8%;
+  width: 4%;
+}
+
+#speed-burrow {
+  left: 79.6%;
+  width: 4%;
+}
+
+.ability, .initiative, .ac, .saving-throw, #spell-resistance, .cm {
+  width: 3%;
+}
+
+#str-ability-score, #dex-ability-score, #con-ability-score, #int-ability-score, #wis-ability-score, #cha-ability-score {
+  left: 11.5%;
+}
+
+.ability-modifier {
+  left: 16%;
+}
+
+#str-ability-score, #str-ability-modifier {
+  bottom: 83.8%;
+}
+
+#dex-ability-score, #dex-ability-modifier {
+  bottom: 81.5%;
+}
+
+#con-ability-score, #con-ability-modifier {
+  bottom: 79.3%;
+}
+
+#int-ability-score, #int-ability-modifier {
+  bottom: 77.1%;
+}
+
+#wis-ability-score, #wis-ability-modifier {
+  bottom: 74.9%;
+}
+
+#cha-ability-score, #cha-ability-modifier,
+#initiative, #initiative-dex-modifier, #initiative-misc-modifier {
+  bottom: 72.6%;
+}
+
+#initiative {
+  left: 39.2%
+}
+
+#initiative-dex-modifier {
+  left: 43.7%
+}
+
+#initiative-misc-modifier {
+  left: 48.2%
+}
+
+#ac, #ac-armor-bonus, #ac-shield-bonus, #ac-dex-modifier, #ac-size-modifier, #ac-natural-armor, #ac-deflection-modifier, #ac-misc-modifier {
+  bottom: 69.1%
+}
+
+#ac {
+  left: 11.3%;
+}
+
+#ac-armor-bonus {
+  left: 19.4%;
+}
+
+#ac-shield-bonus {
+  left: 24.2%;
+}
+
+#ac-dex-modifier {
+  left: 29%;
+}
+
+#ac-size-modifier {
+  left: 33.8%;
+}
+
+#ac-natural-armor {
+  left: 38.6%;
+}
+
+#ac-deflection-modifier {
+  left: 43.4%;
+}
+
+#ac-misc-modifier {
+  left: 48.2%;
+}
+
+#ac-touch, #ac-flat-footed {
+  bottom: 65.5%;
+}
+
+#ac-touch {
+  left: 11.2%;
+}
+
+#ac-flat-footed {
+  left: 25.5%;
+}
+
+.fortitude {
+  bottom: 61.4%;
+}
+
+.reflex {
+  bottom: 59.1%
+}
+
+.will {
+  bottom : 57%;
+}
+
+.saving-throw-total {
+  left: 17.3%;
+}
+
+.saving-throw-base-save {
+  left: 21.9%;
+}
+
+.saving-throw-ability-modifier {
+  left: 26.5%;
+}
+
+.saving-throw-magic-modifier {
+  left: 31.2%;
+}
+
+.saving-throw-misc-modifier {
+  left: 35.8%;
+}
+
+.saving-throw-temp-modifier {
+  left: 40.2%;
+}
+
+#base-attack-bonus, #spell-resistance {
+  bottom: 54.2%;
+}
+
+#base-attack-bonus {
+  left: 28.6%;
+  width: 5.2%;
+}
+
+#spell-resistance {
+  left: 46.4%;
+}
+
+.cmb {
+  bottom: 51.7%;
+}
+
+.cmd {
+  bottom: 48.1%;
+}
+
+.cm-total {
+  left: 20.8%;
+  width: 4%;
+}
+
+.cm-base-attack-bonus {
+  left: 26.7%;
+}
+
+.cm-str-modifier {
+  left: 31.7%;
+}
+
+#cmb-size-modifier, #cmd-dex-modifier {
+  left: 36.7%;
+}
+
+#cmd-size-modifier {
+  left: 41.9%;
+}
+
+#weapon-1-name, #weapon-1-attack-bonus, #weapon-1-critical {
+  bottom: 42.8%;
+}
+
+#weapon-1-type, #weapon-1-range, #weapon-1-ammunition, #weapon-1-damage {
+  bottom: 39.6%;
+}
+
+#weapon-2-name, #weapon-2-attack-bonus, #weapon-2-critical {
+  bottom: 34.7%;
+}
+
+#weapon-2-type, #weapon-2-range, #weapon-2-ammunition, #weapon-2-damage {
+  bottom: 31.5%;
+}
+
+#weapon-3-name, #weapon-3-attack-bonus, #weapon-3-critical {
+  bottom: 26.6%;
+}
+
+#weapon-3-type, #weapon-3-range, #weapon-3-ammunition, #weapon-3-damage {
+  bottom: 23.4%;
+}
+
+#weapon-4-name, #weapon-4-attack-bonus, #weapon-4-critical {
+  bottom: 18.7%;
+}
+
+#weapon-4-type, #weapon-4-range, #weapon-4-ammunition, #weapon-4-damage {
+  bottom: 15.5%;
+}
+
+#weapon-5-name, #weapon-5-attack-bonus, #weapon-5-critical {
+  bottom: 10.6%;
+}
+
+#weapon-5-type, #weapon-5-range, #weapon-5-ammunition, #weapon-5-damage {
+  bottom: 7.4%;
+}
+
+.weapon-name {
+  left: 4.7%;
+  width: 29%;
+}
+
+.weapon-attack-bonus {
+  left: 35%;
+  width: 9.5%;
+}
+
+.weapon-critical {
+  left: 45.8%;
+  width: 5%;
+}
+
+.weapon-type {
+  left: 4.7%;
+  width: 4.4%;
+}
+
+.weapon-range {
+  left: 10.2%;
+  width: 6.8%;
+}
+
+.weapon-ammunition {
+  left: 18.1%;
+  width: 15.6%;
+}
+
+.weapon-damage {
+  left: 34.9%;
+  width: 15.9%;
+}
+
+.skill {
+  width: 3.4%;
+}
+
+.skill-total {
+  left: 71.8%;
+}
+
+.skill-ability-modifier {
+  left: 79.9%;
+}
+
+.skill-ranks {
+  left: 85.1%;
+}
+
+.skill-misc-modifier {
+  left: 90.3%;
+}
+
+.acrobatics {
+  bottom: 74.4%;
+}
+
+.appraise {
+  bottom: 73%;
+}
+
+.bluff {
+  bottom: 71.5%;
+}
+
+.climb {
+  bottom: 70.1%;
+}
+
+#craft-1-info, #craft-2-info, #craft-3-info {
+  left: 58.5%;
+  width: 12.2%;
+}
+
+.craft-1, #craft-1-info {
+  bottom: 68.6%;
+}
+
+.craft-2, #craft-2-info {
+  bottom: 67.2%;
+}
+
+.craft-3, #craft-3-info {
+  bottom: 65.7%;
+}
+
+.diplomacy {
+  bottom: 64.2%;
+}
+
+.disable-device {
+  bottom: 62.8%;
+}
+
+.disguise {
+  bottom: 61.3%;
+}
+
+.escape-artist {
+  bottom: 59.9%;
+}
+
+.fly {
+  bottom: 58.4%;
+}
+
+.handle-animal {
+  bottom: 56.9%;
+}
+
+.heal {
+  bottom: 55.5%;
+}
+
+.intimidate {
+  bottom: 54.1%;
+}
+
+.knowledge-arcana {
+  bottom: 52.6%;
+}
+
+.knowledge-dungeoneering {
+  bottom: 51.1%;
+}
+
+.knowledge-engineering {
+  bottom: 49.7%;
+}
+
+.knowledge-geography {
+  bottom: 48.2%;
+}
+
+.knowledge-history {
+  bottom: 46.7%;
+}
+
+.knowledge-local {
+  bottom: 45.3%;
+}
+
+.knowledge-nature {
+  bottom: 43.8%;
+}
+
+.knowledge-nobility {
+  bottom: 42.4%;
+}
+
+.knowledge-planes {
+  bottom: 40.9%;
+}
+
+.knowledge-religion {
+  bottom: 39.5%;
+}
+
+.linguistics {
+  bottom: 38%;
+}
+
+.perception {
+  bottom: 36.6%;
+}
+
+#perform-1-info, #perform-2-info {
+  left: 60.5%;
+  width: 10.4%;
+}
+
+.perform-1 {
+  bottom: 35.1%;
+}
+
+.perform-2 {
+  bottom: 33.6%;
+}
+
+#profession-1-info, #profession-2-info {
+  left: 62.3%;
+  width: 8.6%;
+}
+
+.profession-1 {
+  bottom: 32.2%;
+}
+
+.profession-2 {
+  bottom: 30.7%;
+}
+
+.ride {
+  bottom: 29.2%;
+}
+
+.sense-motive {
+  bottom: 27.8%;
+}
+
+.sleight-of-hand {
+  bottom: 26.3%;
+}
+
+.spellcraft {
+  bottom: 24.9%;
+}
+
+.stealth {
+  bottom: 23.4%;
+}
+
+.survival {
+  bottom: 22%;
+}
+
+.swim {
+  bottom: 20.5%;
+}
+
+.use-magic-device {
+  bottom: 19.1%;
+}
+
+.conditional-modifiers, .languages {
+  left: 52.5%;
+  width: 41.2%;
+}
+
+#conditional-modifiers-1 {
+  bottom: 15%;
+}
+
+#conditional-modifiers-2 {
+  bottom: 13.5%;
+}
+
+#languages-1 {
+  bottom: 10%;
+}
+
+#languages-2 {
+  bottom: 8.5%;
+}
+
+#languages-3 {
+  bottom: 7.1%;
+}

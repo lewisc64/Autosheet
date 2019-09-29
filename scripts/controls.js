@@ -16,20 +16,13 @@ function updateControlEventHandler(e) {
 }
 
 function getControlById(id) {
-  for (let control of controls) {
-    if (control.id == id) {
-      return control;
-    }
+  return controls[id];
+}
+
+function updateAllControls() {
+  for (let control of controlsList) {
+    control.update();
   }
-}
-
-function copy(source, target) {
-  target.value = source.value;
-  update(target);
-}
-
-function calculateAbilityModifier(score, modifier) {
-  modifier.value = math.floor(score.value / 2) - 5;
 }
 
 class Control {
@@ -40,20 +33,35 @@ class Control {
     this.aggregate = aggregate;
     this.visible = true;
     this.editable = false;
+    this.page = 1;
+    
+    this.affects = [];
   }
   
   aggregateValuesIn() {}
+  
+  updateAffects() {
+    this.affects = [];
+    for (let id in controls) {
+      let control = controls[id];
+      if (control.aggregate.indexOf(this.id) != -1) {
+        this.affects.push(control.id);
+      }
+    }
+  }
   
   update() {
     this.aggregateValuesIn();
     
     this.getElement().value = this.value;
     
-    for (let control of controls) {
-      if (control.aggregate.indexOf(this.id) != -1) {
-        control.update();
-      }
+    for (let id of this.affects) {
+      getControlById(id).update();
     }
+  }
+  
+  inGroup(groupName) {
+    return this.groups.indexOf(groupName) != -1;
   }
   
   getElement() {
@@ -106,7 +114,7 @@ class SumControl extends Control {
   }
 }
 
-controls = [
+page1 = [
   new EditableControl("name", [], ""),
   new EditableControl("alignment", [], ""),
   new EditableControl("player", [], ""),
@@ -210,13 +218,13 @@ controls = [
 ];
 
 for (let i = 1; i <= 5; i++) {
-  controls.push(new EditableControl(`weapon-${i}-name`, ["weapons", "weapon-" + i, "weapon-name"], ""));
-  controls.push(new EditableControl(`weapon-${i}-attack-bonus`, ["weapons", "weapon-" + i, "weapon-attack-bonus"], ""));
-  controls.push(new EditableControl(`weapon-${i}-critical`, ["weapons", "weapon-" + i, "weapon-critical"], ""));
-  controls.push(new EditableControl(`weapon-${i}-type`, ["weapons", "weapon-" + i, "weapon-type"], ""));
-  controls.push(new EditableControl(`weapon-${i}-range`, ["weapons", "weapon-" + i, "weapon-range"], ""));
-  controls.push(new EditableControl(`weapon-${i}-ammunition`, ["weapons", "weapon-" + i, "weapon-ammunition"], ""));
-  controls.push(new EditableControl(`weapon-${i}-damage`, ["weapons", "weapon-" + i, "weapon-damage"], ""));
+  page1.push(new EditableControl(`weapon-${i}-name`, ["weapons", "weapon-" + i, "weapon-name"], ""));
+  page1.push(new EditableControl(`weapon-${i}-attack-bonus`, ["weapons", "weapon-" + i, "weapon-attack-bonus"], ""));
+  page1.push(new EditableControl(`weapon-${i}-critical`, ["weapons", "weapon-" + i, "weapon-critical"], ""));
+  page1.push(new EditableControl(`weapon-${i}-type`, ["weapons", "weapon-" + i, "weapon-type"], ""));
+  page1.push(new EditableControl(`weapon-${i}-range`, ["weapons", "weapon-" + i, "weapon-range"], ""));
+  page1.push(new EditableControl(`weapon-${i}-ammunition`, ["weapons", "weapon-" + i, "weapon-ammunition"], ""));
+  page1.push(new EditableControl(`weapon-${i}-damage`, ["weapons", "weapon-" + i, "weapon-damage"], ""));
 }
 
 skills = [
@@ -263,11 +271,36 @@ skills = [
 
 for (let skill of skills) {
   if (skill.info) {
-    controls.push(new EditableControl(skill.name + "-info", ["skill", "skill-info", skill.name], ""));
+    page1.push(new EditableControl(skill.name + "-info", ["skill", "skill-info", skill.name], ""));
   }
-  // controls.push(new EditableControl(skill.name + "-class", ["skill", "skill-class", skill.name], false));
-  controls.push(new CopyControl(skill.name + "-ability-modifier", ["skill", "skill-ability-modifier", skill.name], 0, [skill.ability + "-ability-modifier"]));
-  controls.push(new EditableControl(skill.name + "-ranks", ["skill", "skill-ranks", skill.name], 0));
-  controls.push(new EditableControl(skill.name + "-misc-modifier", ["skill", "skill-misc-modifier", skill.name], 0));
-  controls.push(new SumControl(skill.name + "-total", ["skill", "skill-total", skill.name], 0, [skill.name + "-ability-modifier", skill.name + "-ranks", skill.name + "-misc-modifier"]));
+  // page1.push(new EditableControl(skill.name + "-class", ["skill", "skill-class", skill.name], false));
+  page1.push(new CopyControl(skill.name + "-ability-modifier", ["skill", "skill-ability-modifier", skill.name], 0, [skill.ability + "-ability-modifier"]));
+  page1.push(new EditableControl(skill.name + "-ranks", ["skill", "skill-ranks", skill.name], 0));
+  page1.push(new EditableControl(skill.name + "-misc-modifier", ["skill", "skill-misc-modifier", skill.name], 0));
+  page1.push(new SumControl(skill.name + "-total", ["skill", "skill-total", skill.name], 0, [skill.name + "-ability-modifier", skill.name + "-ranks", skill.name + "-misc-modifier"]));
+}
+
+let page2 = [
+  
+];
+
+for (let control of page1) {
+  control.groups.push("page-1");
+}
+
+for (let control of page2) {
+  control.groups.push("page-2");
+}
+
+let controls = {}
+let controlsList = [];
+for (let control of [...page1, ...page2]) {
+  if (controls[control.id] !== undefined) {
+    console.log("Duplicate ID: " + control.id);
+  }
+  controlsList.push(control);
+  controls[control.id] = control;
+}
+for (let id in controls) {
+  controls[id].updateAffects();
 }
