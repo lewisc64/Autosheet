@@ -1,0 +1,280 @@
+.sheet {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+}
+
+.sheet > img {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.sheet > input {
+  position: absolute;
+  height: 1.2%;
+  background: #EEEEEE;
+  font-family: "Lucida Handwriting", cursive;
+  border: none;
+}
+
+/* hmm... */
+
+#name, #alignment, #player {
+  bottom: 93.7%;
+}
+
+#name {
+  left: 39.5%;
+  width: 20.5%;
+}
+
+#alignment {
+  left: 61.3%;
+  width: 6.7%;
+}
+
+#player {
+  left: 69.5%;
+  width: 22.4%
+}
+
+#class-and-level, #deity, #homeland {
+  bottom: 91.3%;
+}
+
+#class-and-level {
+  left: 39.5%;
+  width: 28.6%;
+}
+
+#deity {
+  left: 69.5%;
+  width: 12.7%;
+}
+
+#homeland {
+  left: 82.9%;
+  width: 9%
+}
+
+#race, #size, #gender, #age, #height, #weight, #hair, #eyes {
+  bottom: 88.8%;
+}
+
+#race {
+  left: 39.5%;
+  width: 13%
+}
+
+#size {
+  left: 53.3%;
+  width: 4.7%;
+}
+
+#gender {
+  left: 59%;
+  width: 4.8%;
+}
+
+#age {
+  left: 64.6%;
+  width: 3.7%;
+}
+
+#height {
+  left: 69.5%;
+  width: 5.4%;
+}
+
+#weight {
+  left: 75.7%;
+  width: 5.7%;
+}
+
+#hair {
+  left: 81.9%;
+  width: 5.2%;
+}
+
+#eyes {
+  left: 87.6%;
+  width: 4.6%;
+}
+
+#hp-total, #hp-damage-reduction {
+  bottom: 84.8%;
+}
+
+#hp-total {
+  left: 40%;
+  width: 4.4%;
+}
+
+#hp-damage-reduction {
+  left: 47.8%;
+  width: 3%
+}
+
+#hp-current {
+  bottom: 81.4%;
+  left: 30%;
+  width: 21%;
+}
+
+#hp-nonlethal {
+  bottom: 76%;
+  left: 30%;
+  width: 21%
+}
+
+#speed, #speed-squares, #speed-with-armor, #speed-squares-with-armor {
+  bottom: 84.8%;
+}
+
+#speed {
+  left: 60.4%;
+  width: 4%;
+}
+
+#speed-squares {
+  left: 66.5%;
+  width: 3.7%;
+}
+
+#speed-with-armor {
+  left: 73.5%;
+  width: 4%;
+}
+
+#speed-squares-with-armor {
+  left: 79.6%;
+  width: 3.7%;
+}
+
+#speed-fly, #speed-fly-maneuverability, #speed-swim, #speed-climb, #speed-burrow {
+  bottom: 81.7%;
+}
+
+#speed-fly {
+  left: 53%;
+  width: 4%;
+}
+
+#speed-fly-maneuverability {
+  left: 60%;
+  width: 4.4%;
+}
+
+#speed-swim {
+  left: 66%;
+  width: 4%;
+}
+
+#speed-climb {
+  left: 72.8%;
+  width: 4%;
+}
+
+#speed-burrow {
+  left: 79.6%;
+  width: 4%;
+}
+
+.ability, .initiative, .ac {
+  width: 3%;
+}
+
+#str-ability-score, #dex-ability-score, #con-ability-score, #int-ability-score, #wis-ability-score, #cha-ability-score {
+  left: 11.5%;
+}
+
+.ability-modifier {
+  left: 16%;
+}
+
+#str-ability-score, #str-ability-modifier {
+  bottom: 83.8%;
+}
+
+#dex-ability-score, #dex-ability-modifier {
+  bottom: 81.5%;
+}
+
+#con-ability-score, #con-ability-modifier {
+  bottom: 79.3%;
+}
+
+#int-ability-score, #int-ability-modifier {
+  bottom: 77.1%;
+}
+
+#wis-ability-score, #wis-ability-modifier {
+  bottom: 74.9%;
+}
+
+#cha-ability-score, #cha-ability-modifier,
+#initiative, #initiative-dex-modifier, #initiative-misc-modifier {
+  bottom: 72.6%;
+}
+
+#initiative {
+  left: 39.2%
+}
+
+#initiative-dex-modifier {
+  left: 43.7%
+}
+
+#initiative-misc-modifier {
+  left: 48.2%
+}
+
+#ac, #ac-armor-bonus, #ac-shield-bonus, #ac-dex-modifier, #ac-size-modifier, #ac-natural-armor, #ac-deflection-modifier, #ac-misc-modifier {
+  bottom: 69.1%
+}
+
+#ac {
+  left: 11.3%;
+}
+
+#ac-armor-bonus {
+  left: 19.4%;
+}
+
+#ac-shield-bonus {
+  left: 24.2%;
+}
+
+#ac-dex-modifier {
+  left: 29%;
+}
+
+#ac-size-modifier {
+  left: 33.8%;
+}
+
+#ac-natural-armor {
+  left: 38.6%;
+}
+
+#ac-deflection-modifier {
+  left: 43.4%;
+}
+
+#ac-misc-modifier {
+  left: 48.2%;
+}
+
+#ac-touch, #ac-flat-footed {
+  bottom: 65.5%;
+}
+
+#ac-touch {
+  left: 11.2%;
+}
+
+#ac-flat-footed {
+  left: 25.5%;
+}
