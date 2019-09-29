@@ -1,3 +1,41 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+#toolbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background-color: #CC6666;
+  padding: 0.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+#toolbar > p {
+  display: inline-block;
+  margin: 0;
+  margin-right: 1rem;
+}
+
+#toolbar > button {
+  border: none;
+  padding: 0.5em;
+  background-color: #EE6666;
+  color: white;
+}
+
+#toolbar > button:hover {
+  filter: brightness(105%);
+  cursor: pointer;
+}
+
+#toolbar > button:active {
+  filter: brightness(95%);
+}
+
 .sheet {
   display: inline-block;
   position: relative;
@@ -11,15 +49,26 @@
   width: 100%;
 }
 
+.sheet > canvas {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 .sheet > input {
   position: absolute;
   height: 1.2%;
   background: #EEEEEE;
+  /*background: #00000000;*/
   font-family: "Lucida Handwriting", cursive;
   border: none;
 }
 
-/* hmm... */
+/* help me! */
 
 #name, #alignment, #player {
   bottom: 93.7%;
@@ -182,7 +231,7 @@
   width: 4%;
 }
 
-.ability, .initiative, .ac {
+.ability, .initiative, .ac, .saving-throw, #spell-resistance, .cm {
   width: 3%;
 }
 
@@ -277,4 +326,373 @@
 
 #ac-flat-footed {
   left: 25.5%;
+}
+
+.fortitude {
+  bottom: 61.4%;
+}
+
+.reflex {
+  bottom: 59.1%
+}
+
+.will {
+  bottom : 57%;
+}
+
+.saving-throw-total {
+  left: 17.3%;
+}
+
+.saving-throw-base-save {
+  left: 21.9%;
+}
+
+.saving-throw-ability-modifier {
+  left: 26.5%;
+}
+
+.saving-throw-magic-modifier {
+  left: 31.2%;
+}
+
+.saving-throw-misc-modifier {
+  left: 35.8%;
+}
+
+.saving-throw-temp-modifier {
+  left: 40.2%;
+}
+
+#base-attack-bonus, #spell-resistance {
+  bottom: 54.2%;
+}
+
+#base-attack-bonus {
+  left: 28.6%;
+  width: 5.2%;
+}
+
+#spell-resistance {
+  left: 46.4%;
+}
+
+.cmb {
+  bottom: 51.7%;
+}
+
+.cmd {
+  bottom: 48.1%;
+}
+
+.cm-total {
+  left: 20.8%;
+  width: 4%;
+}
+
+.cm-base-attack-bonus {
+  left: 26.7%;
+}
+
+.cm-str-modifier {
+  left: 31.7%;
+}
+
+#cmb-size-modifier, #cmd-dex-modifier {
+  left: 36.7%;
+}
+
+#cmd-size-modifier {
+  left: 41.9%;
+}
+
+#weapon-1-name, #weapon-1-attack-bonus, #weapon-1-critical {
+  bottom: 42.8%;
+}
+
+#weapon-1-type, #weapon-1-range, #weapon-1-ammunition, #weapon-1-damage {
+  bottom: 39.6%;
+}
+
+#weapon-2-name, #weapon-2-attack-bonus, #weapon-2-critical {
+  bottom: 34.7%;
+}
+
+#weapon-2-type, #weapon-2-range, #weapon-2-ammunition, #weapon-2-damage {
+  bottom: 31.5%;
+}
+
+#weapon-3-name, #weapon-3-attack-bonus, #weapon-3-critical {
+  bottom: 26.6%;
+}
+
+#weapon-3-type, #weapon-3-range, #weapon-3-ammunition, #weapon-3-damage {
+  bottom: 23.4%;
+}
+
+#weapon-4-name, #weapon-4-attack-bonus, #weapon-4-critical {
+  bottom: 18.7%;
+}
+
+#weapon-4-type, #weapon-4-range, #weapon-4-ammunition, #weapon-4-damage {
+  bottom: 15.5%;
+}
+
+#weapon-5-name, #weapon-5-attack-bonus, #weapon-5-critical {
+  bottom: 10.6%;
+}
+
+#weapon-5-type, #weapon-5-range, #weapon-5-ammunition, #weapon-5-damage {
+  bottom: 7.4%;
+}
+
+.weapon-name {
+  left: 4.7%;
+  width: 29%;
+}
+
+.weapon-attack-bonus {
+  left: 35%;
+  width: 9.5%;
+}
+
+.weapon-critical {
+  left: 45.8%;
+  width: 5%;
+}
+
+.weapon-type {
+  left: 4.7%;
+  width: 4.4%;
+}
+
+.weapon-range {
+  left: 10.2%;
+  width: 6.8%;
+}
+
+.weapon-ammunition {
+  left: 18.1%;
+  width: 15.6%;
+}
+
+.weapon-damage {
+  left: 34.9%;
+  width: 15.9%;
+}
+
+.skill {
+  width: 3.4%;
+}
+
+.skill-total {
+  left: 71.8%;
+}
+
+.skill-ability-modifier {
+  left: 79.9%;
+}
+
+.skill-ranks {
+  left: 85.1%;
+}
+
+.skill-misc-modifier {
+  left: 90.3%;
+}
+
+.acrobatics {
+  bottom: 74.4%;
+}
+
+.appraise {
+  bottom: 73%;
+}
+
+.bluff {
+  bottom: 71.5%;
+}
+
+.climb {
+  bottom: 70.1%;
+}
+
+#craft-1-info, #craft-2-info, #craft-3-info {
+  left: 58.5%;
+  width: 12.2%;
+}
+
+.craft-1, #craft-1-info {
+  bottom: 68.6%;
+}
+
+.craft-2, #craft-2-info {
+  bottom: 67.2%;
+}
+
+.craft-3, #craft-3-info {
+  bottom: 65.7%;
+}
+
+.diplomacy {
+  bottom: 64.2%;
+}
+
+.disable-device {
+  bottom: 62.8%;
+}
+
+.disguise {
+  bottom: 61.3%;
+}
+
+.escape-artist {
+  bottom: 59.8%;
+}
+
+.fly {
+  bottom: 58.4%;
+}
+
+.handle-animal {
+  bottom: 56.9%;
+}
+
+.heal {
+  bottom: 55.5%;
+}
+
+.intimidate {
+  bottom: 54%;
+}
+
+.knowledge-arcana {
+  bottom: 52.6%;
+}
+
+.knowledge-dungeoneering {
+  bottom: 51.1%;
+}
+
+.knowledge-engineering {
+  bottom: 49.6%;
+}
+
+.knowledge-geography {
+  bottom: 48.2%;
+}
+
+.knowledge-history {
+  bottom: 46.7%;
+}
+
+.knowledge-local {
+  bottom: 45.3%;
+}
+
+.knowledge-nature {
+  bottom: 43.8%;
+}
+
+.knowledge-nobility {
+  bottom: 42.3%;
+}
+
+.knowledge-planes {
+  bottom: 40.9%;
+}
+
+.knowledge-religion {
+  bottom: 39.5%;
+}
+
+.linguistics {
+  bottom: 38%;
+}
+
+.perception {
+  bottom: 36.5%;
+}
+
+#perform-1-info, #perform-2-info {
+  left: 60.5%;
+  width: 10.4%;
+}
+
+.perform-1 {
+  bottom: 35.1%;
+}
+
+.perform-2 {
+  bottom: 33.6%;
+}
+
+#profession-1-info, #profession-2-info {
+  left: 62.3%;
+  width: 8.6%;
+}
+
+.profession-1 {
+  bottom: 32.2%;
+}
+
+.profession-2 {
+  bottom: 30.7%;
+}
+
+.ride {
+  bottom: 29.2%;
+}
+
+.sense-motive {
+  bottom: 27.8%;
+}
+
+.sleight-of-hand {
+  bottom: 26.3%;
+}
+
+.spellcraft {
+  bottom: 24.9%;
+}
+
+.stealth {
+  bottom: 23.4%;
+}
+
+.survival {
+  bottom: 22%;
+}
+
+.swim {
+  bottom: 20.5%;
+}
+
+.use-magic-device {
+  bottom: 19%;
+}
+
+.conditional-modifiers, .languages {
+  left: 52.5%;
+  width: 41.2%;
+}
+
+#conditional-modifiers-1 {
+  bottom: 15%;
+}
+
+#conditional-modifiers-2 {
+  bottom: 13.5%;
+}
+
+#languages-1 {
+  bottom: 10%;
+}
+
+#languages-2 {
+  bottom: 8.5%;
+}
+
+#languages-3 {
+  bottom: 7.1%;
 }
