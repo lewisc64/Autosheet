@@ -1,3 +1,5 @@
+/* help me! */
+
 #name, #alignment, #player {
   bottom: 93.7%;
 }
@@ -413,6 +415,14 @@
   width: 3.4%;
 }
 
+.skill-trained {
+  background: transparent !important;
+  padding-top: 0.7%;
+  left: 52.2%;
+  width: 1.5%;
+  text-align: center;
+}
+
 .skill-total {
   left: 71.8%;
 }
@@ -610,7 +620,7 @@
 }
 
 #conditional-modifiers-2 {
-  bottom: 13.5%;
+  bottom: 13.6%;
 }
 
 #languages-1 {

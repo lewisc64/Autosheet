@@ -53,7 +53,9 @@ class Control {
   update() {
     this.aggregateValuesIn();
     
-    this.getElement().value = this.value;
+    if (!this.editable) {
+      this.getElement().setSheetValue(this.value);
+    }
     
     for (let id of this.affects) {
       getControlById(id).update();
@@ -273,7 +275,7 @@ for (let skill of skills) {
   if (skill.info) {
     page1.push(new EditableControl(skill.name + "-info", ["skill", "skill-info", skill.name], ""));
   }
-  // page1.push(new EditableControl(skill.name + "-class", ["skill", "skill-class", skill.name], false));
+  page1.push(new EditableControl(skill.name + "-trained", ["skill", "skill-trained", skill.name], false));
   page1.push(new CopyControl(skill.name + "-ability-modifier", ["skill", "skill-ability-modifier", skill.name], 0, [skill.ability + "-ability-modifier"]));
   page1.push(new EditableControl(skill.name + "-ranks", ["skill", "skill-ranks", skill.name], 0));
   page1.push(new EditableControl(skill.name + "-misc-modifier", ["skill", "skill-misc-modifier", skill.name], 0));

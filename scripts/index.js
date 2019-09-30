@@ -20,7 +20,7 @@ function save() {
   
   for (let elem of document.querySelectorAll(".sheet > input")) {
     if (getControlById(elem.id).editable) {
-      packed.ids[elem.id] = elem.value;
+      packed.ids[elem.id] = elem.getSheetValue();
     }
   }
   
@@ -41,7 +41,7 @@ function importJsonContent(content) {
   for (let id in packed.ids) {
     let value = packed.ids[id];
     elem = document.getElementById(id);
-    elem.value = value;
+    elem.setSheetValue(value);
     elem.dispatchEvent(new Event("input"));
   }
   
@@ -73,20 +73,16 @@ function importSheet() {
   }
 }
 
-function setup() {
-  
+function setUpElements() {
   for (let control of controlsList) {
     if (!control.visible) {
       continue;
     }
     
-    let elem = document.createElement("input");
-    if (typeof control.value == "boolean") {
-      elem.type = "checkbox";
-    }
+    let elem = createElementForType(typeof control.value);
     elem.id = control.id;
     elem.disabled = !control.editable;
-    elem.value = control.value;
+    elem.setSheetValue(control.value);
     
     for (let group of control.groups) {
       elem.classList.add(group);
@@ -95,10 +91,13 @@ function setup() {
     elem.addEventListener("input", updateControlEventHandler);
     new ResizeObserver(() => { setFontSize(elem); }).observe(elem);
     
-    document.getElementById("page1").appendChild(elem);
+    let page = document.getElementById("page1");
+    page.appendChild(elem);
   }
   updateAllControls();
-  
+}
+
+function setUpCanvases() {
   for (let page of document.querySelectorAll(".sheet")) {
     let img = page.querySelector("img");
     let canvas = document.createElement("canvas");
@@ -107,6 +106,12 @@ function setup() {
     page.appendChild(canvas);
     setupCanvas(canvas);
   }
+}
+
+function setup() {
+  
+  setUpElements();
+  setUpCanvases();
   
   document.getElementById("cursor").addEventListener("click", function () {
     for (let canvas of document.querySelectorAll(".sheet > canvas")) {

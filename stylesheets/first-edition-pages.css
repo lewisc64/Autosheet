@@ -1,0 +1,31 @@
+.sheet {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+}
+
+.sheet > img {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.sheet > canvas {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sheet > input {
+  position: absolute;
+  height: 1.2%;
+  background: #EEEEEE;
+  /*background: #00000000;*/
+  font-family: "Lucida Handwriting", cursive;
+  border: none;
+}
