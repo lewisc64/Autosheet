@@ -18,7 +18,7 @@ function save() {
     packed.scribbles[canvas.parentNode.id] = canvas.toDataURL("image/png");
   }
   
-  for (let elem of document.querySelectorAll(".sheet > input")) {
+  for (let elem of document.querySelectorAll(".sheet > input, .sheet > select")) {
     if (getControlById(elem.id).editable) {
       packed.ids[elem.id] = elem.getSheetValue();
     }
@@ -79,7 +79,7 @@ function setUpElements() {
       continue;
     }
     
-    let elem = createElementForType(typeof control.value);
+    let elem = control.createElement();
     elem.id = control.id;
     elem.disabled = !control.editable;
     elem.setSheetValue(control.value);

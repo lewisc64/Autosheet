@@ -21,7 +21,7 @@
   pointer-events: none;
 }
 
-.sheet > input {
+.sheet > input, .sheet > select {
   position: absolute;
   height: 1.2%;
   background: #EEEEEE;

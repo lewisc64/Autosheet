@@ -25,9 +25,18 @@ function createCheckBox() {
   return box;
 }
 
-function createElementForType(type) {
-  if (type == "boolean") {
-    return createCheckBox();
+function createComboBox(values) {
+  let box = document.createElement("select");
+  box.setSheetValue = (value) => { box.value = value };
+  box.getSheetValue = () => { return box.value };
+  
+  for (let key in values) {
+    let value = values[key];
+    let elem = document.createElement("option");
+    elem.textContent = key;
+    elem.value = value;
+    box.appendChild(elem);
   }
-  return createTextBox();
+  
+  return box;
 }

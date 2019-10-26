@@ -38,6 +38,10 @@ class Control {
     this.affects = [];
   }
   
+  createElement() {
+    return createTextBox();
+  }
+  
   aggregateValuesIn() {}
   
   updateAffects() {
@@ -78,6 +82,23 @@ class EditableControl extends Control {
   }
 }
 
+class EditableSelectionControl extends EditableControl {
+  constructor(id, groups, value, values) {
+    super(id, groups, value)
+    this.values = values;
+  }
+  
+  createElement() {
+    return createComboBox(this.values);
+  }
+}
+
+class EditableBooleanControl extends EditableControl {
+  createElement() {
+    return createCheckBox();
+  }
+}
+
 class StaticValueControl extends Control {
   constructor(id, groups, value) {
     super(id, groups, value);
@@ -106,6 +127,7 @@ class CopyControl extends Control {
     this.value = getControlById(this.aggregate[0]).value;
   }
 }
+
 class SumControl extends Control {
   aggregateValuesIn() {
     let total = 0;
@@ -116,6 +138,46 @@ class SumControl extends Control {
   }
 }
 
+class MapControl extends Control {
+  constructor(id, groups, value, control, map) {
+    super(id, groups, value, [control]);
+    this.map = map;
+  }
+  
+  aggregateValuesIn() {
+    this.value = this.map[getControlById(this.aggregate[0]).value];
+  }
+}
+
+let sizeModifierMap = {
+  "F": 8,
+  "D": 4,
+  "T": 2,
+  "S": 1,
+  "M": 0,
+  "LT": -1,
+  "LL": -1,
+  "HT": -2,
+  "HL": -2,
+  "GT": -4,
+  "GL": -4,
+  "CT": -8,
+  "CT": -8,
+};
+
+let specialSizeModifierMap = {};
+
+for (let key in sizeModifierMap) {
+  specialSizeModifierMap[key] = -sizeModifierMap[key];
+}
+
+let sizesMap = {};
+for (let key in sizeModifierMap) {
+  sizesMap[key] = key;
+};
+
+console.log(sizesMap);
+
 page1 = [
   new EditableControl("name", [], ""),
   new EditableControl("alignment", [], ""),
@@ -124,7 +186,7 @@ page1 = [
   new EditableControl("deity", [], ""),
   new EditableControl("homeland", [], ""),
   new EditableControl("race", [], ""),
-  new EditableControl("size", [], ""),
+  new EditableSelectionControl("size", ["size"], "M", sizesMap),
   new EditableControl("gender", [], ""),
   new EditableControl("age", [], ""),
   new EditableControl("height", [], ""),
@@ -167,7 +229,7 @@ page1 = [
   new EditableControl("ac-armor-bonus", ["ac"], 0),
   new EditableControl("ac-shield-bonus", ["ac"], 0),
   new CopyControl("ac-dex-modifier", ["ac"], 0, ["dex-ability-modifier"]),
-  new EditableControl("ac-size-modifier", ["ac"], 0),
+  new MapControl("ac-size-modifier", ["ac"], 0, "size", sizeModifierMap),
   new EditableControl("ac-natural-armor", ["ac"], 0),
   new EditableControl("ac-deflection-modifier", ["ac"], 0),
   new EditableControl("ac-misc-modifier", ["ac"], 0),
@@ -202,13 +264,13 @@ page1 = [
   
   new CopyControl("cmb-base-attack-bonus", ["cmb", "cm", "cm-base-attack-bonus"], 0, ["base-attack-bonus"]),
   new CopyControl("cmb-str-modifier", ["cmb", "cm", "cm-str-modifier"], 0, ["str-ability-modifier"]),
-  new EditableControl("cmb-size-modifier", ["cmb", "cm", "cm-size-modifier"], 0),
+  new MapControl("cmb-size-modifier", ["cmb", "cm", "cm-size-modifier"], 0, "size", specialSizeModifierMap),
   new SumControl("cmb", ["cmb", "cm", "cm-total"], 0, ["cmb-base-attack-bonus", "cmb-str-modifier", "cmb-size-modifier"]),
   
   new CopyControl("cmd-base-attack-bonus", ["cmd", "cm", "cm-base-attack-bonus"], 0, ["base-attack-bonus"]),
   new CopyControl("cmd-str-modifier", ["cmd", "cm", "cm-str-modifier"], 0, ["str-ability-modifier"]),
   new CopyControl("cmd-dex-modifier", ["cmd", "cm"], 0, ["dex-ability-modifier"]),
-  new EditableControl("cmd-size-modifier", ["cmd", "cm", "cm-size-modifier"], 0),
+  new MapControl("cmd-size-modifier", ["cmd", "cm", "cm-size-modifier"], 0, "size", specialSizeModifierMap),
   new StaticValueControl("cmd-constant-modifier", ["cmd", "cm"], 10),
   new SumControl("cmd", ["cmd", "cm", "cm-total"], 10, ["cmd-base-attack-bonus", "cmd-str-modifier", "cmd-dex-modifier", "cmd-size-modifier", "cmd-constant-modifier"]),
   
@@ -275,7 +337,7 @@ for (let skill of skills) {
   if (skill.info) {
     page1.push(new EditableControl(skill.name + "-info", ["skill", "skill-info", skill.name], ""));
   }
-  page1.push(new EditableControl(skill.name + "-trained", ["skill", "skill-trained", skill.name], false));
+  page1.push(new EditableBooleanControl(skill.name + "-trained", ["skill", "skill-trained", skill.name], false));
   page1.push(new CopyControl(skill.name + "-ability-modifier", ["skill", "skill-ability-modifier", skill.name], 0, [skill.ability + "-ability-modifier"]));
   page1.push(new EditableControl(skill.name + "-ranks", ["skill", "skill-ranks", skill.name], 0));
   page1.push(new EditableControl(skill.name + "-misc-modifier", ["skill", "skill-misc-modifier", skill.name], 0));
