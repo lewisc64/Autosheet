@@ -1,7 +1,3 @@
-function setFontSize(elem) {
-  elem.style["font-size"] = elem.clientHeight * 0.6 + "px";
-}
-
 function copyDimensionsForCanvas(source, canvas) {
   canvas.width = source.clientWidth;
   canvas.height = source.clientHeight;
@@ -80,16 +76,6 @@ function setUpElements() {
     }
     
     let elem = control.createElement();
-    elem.id = control.id;
-    elem.disabled = !control.editable;
-    elem.setSheetValue(control.value);
-    
-    for (let group of control.groups) {
-      elem.classList.add(group);
-    }
-    
-    elem.addEventListener("input", updateControlEventHandler);
-    new ResizeObserver(() => { setFontSize(elem); }).observe(elem);
     
     let page = document.getElementById("page1");
     page.appendChild(elem);
