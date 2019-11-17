@@ -208,6 +208,15 @@ page2.push(...[
   new SumControl("ac-item-total-weight", ["ac-item", "ac-item-total", "ac-item-weight"], 0, ["ac-item-1-weight", "ac-item-2-weight", "ac-item-3-weight", "ac-item-4-weight", "ac-item-5-weight"]),
 ]);
 
+let totalGearWeights = [];
+for (let i = 1; i <= 26; i++) {
+  let prefix = "gear-" + i + "-";
+  page2.push(new EditableControl(prefix + "name", ["gear-" + i, "gear-name"], ""));
+  page2.push(new EditableControl(prefix + "weight", ["gear-" + i, "gear-weight"], 0));
+  totalGearWeights.push(prefix + "weight");
+}
+page2.push(new SumControl("gear-total-weight", ["gear-total", "gear-weight"], 0, totalGearWeights));
+
 for (let control of page1) {
   control.groups.push("page-1");
 }
