@@ -193,9 +193,20 @@ for (let skill of skills) {
   page1.push(new SumControl(skill.name + "-total", ["skill", "skill-total", skill.name], 0, [skill.name + "-ability-modifier", skill.name + "-ranks", skill.name + "-misc-modifier"]));
 }
 
-let page2 = [
-  
-];
+let page2 = [];
+
+for (let i = 1; i <= 5; i++) {
+  let prefix = "ac-item-" + i + "-";
+  for (let type of ["name", "bonus", "type", "check-penalty", "spell-failure", "weight", "properties"]) {
+    page2.push(new EditableControl(prefix + type, ["ac-item", "ac-item-" + i, "ac-item-" + type], ["bonus", "check-penalty", "weight"].indexOf(type) == -1 ? "" : 0));
+  }
+}
+
+page2.push(...[
+  new SumControl("ac-item-total-bonus", ["ac-item", "ac-item-total", "ac-item-bonus"], 0, ["ac-item-1-bonus", "ac-item-2-bonus", "ac-item-3-bonus", "ac-item-4-bonus", "ac-item-5-bonus"]),
+  new SumControl("ac-item-total-check-penalty", ["ac-item", "ac-item-total", "ac-item-check-penalty"], 0, ["ac-item-1-check-penalty", "ac-item-2-check-penalty", "ac-item-3-check-penalty", "ac-item-4-check-penalty", "ac-item-5-check-penalty"]),
+  new SumControl("ac-item-total-weight", ["ac-item", "ac-item-total", "ac-item-weight"], 0, ["ac-item-1-weight", "ac-item-2-weight", "ac-item-3-weight", "ac-item-4-weight", "ac-item-5-weight"]),
+]);
 
 for (let control of page1) {
   control.groups.push("page-1");

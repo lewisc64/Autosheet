@@ -77,7 +77,7 @@ function setUpElements() {
     
     let elem = control.createElement();
     
-    let page = document.getElementById("page1");
+    let page = document.getElementById(control.hasGroup("page-1") ? "page1" : "page2");
     page.appendChild(elem);
   }
   updateAllControls();

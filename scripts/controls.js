@@ -37,6 +37,10 @@ class Control {
     
     this.affects = [];
   }
+
+  hasGroup(name) {
+    return this.groups.indexOf(name) != -1
+  }
   
   configureElement(elem) {
     elem.id = this.id;
