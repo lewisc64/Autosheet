@@ -217,6 +217,14 @@ for (let i = 1; i <= 26; i++) {
 }
 page2.push(new SumControl("gear-total-weight", ["gear-total", "gear-weight"], 0, totalGearWeights));
 
+for (let i = 1; i <= 12; i++) {
+  page2.push(new EditableControl("feat-" + i, ["feats"], ""));
+}
+
+for (let i = 1; i <= 20; i++) {
+  page2.push(new EditableControl("special-ability-" + i, ["special-abilities"], ""));
+}
+
 for (let control of page1) {
   control.groups.push("page-1");
 }
