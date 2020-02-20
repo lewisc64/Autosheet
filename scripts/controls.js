@@ -263,7 +263,7 @@ class MapControl extends Control {
   }
   
   isBumpable() {
-    return typeof value == "number";
+    return (typeof value) == "number";
   }
   
   aggregateValuesIn() {

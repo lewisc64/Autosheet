@@ -34,6 +34,10 @@ function importJsonContent(content) {
   
   packed = JSON.parse(content);
   
+  for (let control in controlsList) {
+    control.resetBump();
+  }
+  
   for (let id in packed.ids) {
     let value = packed.ids[id];
     elem = document.getElementById(id);
