@@ -111,23 +111,12 @@ class Control {
       bumpDialog.classList.add("dialog");
       bumpDialog.id = bumpDialogId;
       
-      let colorFunc = () => {
-        if (this.getBump() > 0) {
-          elem.style.color = "blue";
-        } else if (this.getBump() < 0) {
-          elem.style.color = "red";
-        } else {
-          elem.style.color = null;
-        }
-      };
-      
       for (let buttonInfo of [["-", () => this.addBump(-1)], ["R", () => this.resetBump()], ["+", () => this.addBump(1)]]) {
         let bumpButton = document.createElement("button");
         bumpButton.classList.add("bump-button");
         bumpButton.textContent = buttonInfo[0];
         bumpButton.addEventListener("click", () => {
           buttonInfo[1]();
-          colorFunc();
         });
         bumpDialog.appendChild(bumpButton);
       }
@@ -161,6 +150,17 @@ class Control {
   }
   
   update() {
+    
+    let elem = document.getElementById(this.id);
+    
+    if (this.getBump() > 0) {
+      elem.style.color = "blue";
+    } else if (this.getBump() < 0) {
+      elem.style.color = "red";
+    } else {
+      elem.style.color = null;
+    }
+    
     this.aggregateValuesIn();
     
     if (!this.editable) {

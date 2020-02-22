@@ -8,6 +8,7 @@ function save() {
   packed = {
     ids: {},
     scribbles: {},
+    valueBumps: {},
   };
   
   for (let canvas of document.querySelectorAll(".sheet > canvas")) {
@@ -17,6 +18,12 @@ function save() {
   for (let elem of document.querySelectorAll(".sheet > input, .sheet > select")) {
     if (getControlById(elem.id).editable) {
       packed.ids[elem.id] = elem.getSheetValue();
+    }
+  }
+  
+  for (let control of controlsList) {
+    if (control.getBump() != 0) {
+      packed.valueBumps[control.id] = control.getBump();
     }
   }
   
@@ -34,8 +41,11 @@ function importJsonContent(content) {
   
   packed = JSON.parse(content);
   
-  for (let control in controlsList) {
+  for (let control of controlsList) {
     control.resetBump();
+    if (packed.valueBumps != null && packed.valueBumps[control.id] != undefined) {
+      control.addBump(packed.valueBumps[control.id]);
+    }
   }
   
   for (let id in packed.ids) {
