@@ -144,7 +144,7 @@ skills = [
   { name: "acrobatics", info: false, ability: "dex" },
   { name: "appraise", info: false, ability: "int" },
   { name: "bluff", info: false, ability: "cha" },
-  { name: "climb", info: false, ability: "dex" },
+  { name: "climb", info: false, ability: "str" },
   { name: "craft-1", info: true, ability: "int" },
   { name: "craft-2", info: true, ability: "int" },
   { name: "craft-3", info: true, ability: "int" },
