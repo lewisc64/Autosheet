@@ -28,6 +28,8 @@ for (let key in sizeModifierMap) {
 console.log(sizesMap);
 
 page1 = [
+  new PageTitleFakeControl("title", [], "Autosheet", ["name"]),
+  
   new EditableControl("name", [], ""),
   new EditableControl("alignment", [], ""),
   new EditableControl("player", [], ""),

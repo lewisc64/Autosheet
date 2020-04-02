@@ -242,6 +242,18 @@ class CopyControl extends Control {
   }
 }
 
+class PageTitleFakeControl extends Control {
+  aggregateValuesIn() {
+    let value = getControlById(this.aggregate[0]).value;
+    if (value) {
+      document.title = "Autosheet - " + value;
+    }
+    else {
+      document.title = "Autosheet";
+    }
+  }
+}
+
 class SumControl extends Control {
   isBumpable() {
     return true;
