@@ -153,17 +153,19 @@ class Control {
     
     let elem = document.getElementById(this.id);
     
-    if (this.getBump() > 0) {
-      elem.style.color = "blue";
-    } else if (this.getBump() < 0) {
-      elem.style.color = "red";
-    } else {
-      elem.style.color = null;
+    if (elem) {
+      if (this.getBump() > 0) {
+        elem.style.color = "blue";
+      } else if (this.getBump() < 0) {
+        elem.style.color = "red";
+      } else {
+        elem.style.color = null;
+      }
     }
     
     this.aggregateValuesIn();
     
-    if (!this.editable) {
+    if (!this.editable && this.visible) {
       this.getElement().setSheetValue(this.value);
     }
     
@@ -243,10 +245,16 @@ class CopyControl extends Control {
 }
 
 class PageTitleFakeControl extends Control {
+  constructor(id, groups, value, aggregate) {
+    super(id, groups, value, aggregate);
+    this.editable = false;
+    this.visible = false;
+  }
+  
   aggregateValuesIn() {
     let value = getControlById(this.aggregate[0]).value;
     if (value) {
-      document.title = "Autosheet - " + value;
+      document.title = value + " - Autosheet";
     }
     else {
       document.title = "Autosheet";
