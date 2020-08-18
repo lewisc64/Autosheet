@@ -307,3 +307,37 @@
 #special-ability-20 {
   bottom: 11.1%;
 }
+
+.load {
+  width: 3.1%;
+}
+
+#load-light {
+  left: 11.8%;
+  bottom: 21.5%;
+}
+
+#load-medium {
+  left: 11.8%;
+  bottom: 19.2%;
+}
+
+#load-heavy {
+  left: 11.8%;
+  bottom: 16.9%;
+}
+
+#load-lift-over-head {
+  left: 23.6%;
+  bottom: 21.5%;
+}
+
+#load-lift-off-ground {
+  left: 23.6%;
+  bottom: 19.2%;
+}
+
+#load-drag-push {
+  left: 23.6%;
+  bottom: 16.9%;
+}

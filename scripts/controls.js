@@ -238,6 +238,31 @@ class AbilityModifierControl extends Control {
   }
 }
 
+class HeavyLoadControl extends Control {
+  constructor(id, groups, value, strengthControlId) {
+    super(id, groups, value, [strengthControlId]);
+    this.strengthControlId = strengthControlId;
+  }
+  
+  isBumpable() {
+    return true;
+  }
+  
+  aggregateValuesIn() {
+    let str = getControlById(this.strengthControlId).value;
+    this.value = this.getHeavyLoad(str) + this.getBump();
+  }
+  
+  getHeavyLoad(str) {
+    if (str >= 0 && str <= 10) {
+      return 10 * str;
+    } else if (str >= 15) {
+      return 2 * this.getHeavyLoad(str - 5);
+    }
+    return [115, 130, 150, 175][str - 11];
+  }
+}
+
 class CopyControl extends Control {
   aggregateValuesIn() {
     this.value = getControlById(this.aggregate[0]).value;
@@ -277,12 +302,35 @@ class SumControl extends Control {
 }
 
 class DivideControl extends Control {
+  constructor(id, groups, value, aggregate=[], decimalPlaces=2) {
+    super(id, groups, value, aggregate, )
+    this.decimalPlaces = decimalPlaces;
+  }
+  
   isBumpable() {
     return true;
   }
   
   aggregateValuesIn() {
-    this.value = getControlById(this.aggregate[0]).value / getControlById(this.aggregate[1]).value + this.getBump();
+    this.value = this.round(getControlById(this.aggregate[0]).value / getControlById(this.aggregate[1]).value + this.getBump());
+  }
+  
+  round(n) {
+    return Math.trunc(n * Math.pow(10, this.decimalPlaces)) / Math.pow(10, this.decimalPlaces);
+  }
+}
+
+class MultiplyControl extends DivideControl {
+  isBumpable() {
+    return true;
+  }
+  
+  aggregateValuesIn() {
+    let product = 1;
+    for (let id of this.aggregate) {
+      product *= getControlById(id).value;
+    }
+    this.value = this.round(product + this.getBump());
   }
 }
 

@@ -14,6 +14,22 @@ let sizeModifierMap = {
   "CL": -8,
 };
 
+let sizeCarryMultiplierMap = {
+  "F": 1/8,
+  "D": 1/4,
+  "T": 1/2,
+  "S": 3/4,
+  "M": 1,
+  "LT": 2,
+  "LL": 2,
+  "HT": 4,
+  "HL": 4,
+  "GT": 8,
+  "GL": 8,
+  "CT": 16,
+  "CL": 16,
+};
+
 let specialSizeModifierMap = {};
 
 for (let key in sizeModifierMap) {
@@ -47,8 +63,8 @@ page1 = [
   
   new StaticValueControl("speed-feet-per-square", ["speed"], 5),
   new EditableControl("speed", ["speed"], ""),
-  new DivideControl("speed-squares", ["speed"], "", ["speed", "speed-feet-per-square"]),
-  new EditableControl("speed-with-armor", ["speed"], ""),
+  new DivideControl("speed-squares", ["speed"], 0, ["speed", "speed-feet-per-square"]),
+  new EditableControl("speed-with-armor", ["speed"], 0),
   new DivideControl("speed-squares-with-armor", ["speed"], "", ["speed-with-armor", "speed-feet-per-square"]),
   new EditableControl("speed-fly", ["speed"], ""),
   new EditableControl("speed-fly-maneuverability", ["speed"], ""),
@@ -219,6 +235,30 @@ for (let i = 1; i <= 26; i++) {
   totalGearWeights.push(prefix + "weight");
 }
 page2.push(new SumControl("gear-total-weight", ["gear-total", "gear-weight"], 0, totalGearWeights));
+
+let multiplierMapControl = new MapControl("load-size-multiplier", ["load"], 0, "size", sizeCarryMultiplierMap);
+multiplierMapControl.visible = false;
+
+let heavyLoad = new HeavyLoadControl("load-heavy-true", ["load"], 0, "str-ability-score");
+heavyLoad.visible = false;
+
+page2.push(...[
+  multiplierMapControl,
+  new StaticValueControl("load-light-multiplier", ["load"], 1 / 3),
+  new StaticValueControl("load-medium-multiplier", ["load"], 2 / 3),
+  new StaticValueControl("load-lift-over-head-multiplier", ["load"], 1),
+  new StaticValueControl("load-lift-off-ground-multiplier", ["load"], 2),
+  new StaticValueControl("load-drag-push-multiplier", ["load"], 5),
+  
+  heavyLoad,
+  new MultiplyControl("load-heavy", ["load"], 0, ["load-heavy-true", "load-size-multiplier"], 0),
+  new MultiplyControl("load-medium", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-medium-multiplier"], 0),
+  new MultiplyControl("load-light", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-light-multiplier"], 0),
+  
+  new MultiplyControl("load-lift-over-head", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-lift-over-head-multiplier"]),
+  new MultiplyControl("load-lift-off-ground", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-lift-off-ground-multiplier"]),
+  new MultiplyControl("load-drag-push", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-drag-push-multiplier"]),
+]);
 
 for (let i = 1; i <= 12; i++) {
   page2.push(new EditableControl("feat-" + i, ["feats"], ""));
