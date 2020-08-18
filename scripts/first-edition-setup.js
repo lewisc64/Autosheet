@@ -45,10 +45,11 @@ page1 = [
   new EditableControl("hair", [], ""),
   new EditableControl("eyes", [], ""),
   
+  new StaticValueControl("speed-feet-per-square", ["speed"], 5),
   new EditableControl("speed", ["speed"], ""),
-  new EditableControl("speed-squares", ["speed"], ""),
+  new DivideControl("speed-squares", ["speed"], "", ["speed", "speed-feet-per-square"]),
   new EditableControl("speed-with-armor", ["speed"], ""),
-  new EditableControl("speed-squares-with-armor", ["speed"], ""),
+  new DivideControl("speed-squares-with-armor", ["speed"], "", ["speed-with-armor", "speed-feet-per-square"]),
   new EditableControl("speed-fly", ["speed"], ""),
   new EditableControl("speed-fly-maneuverability", ["speed"], ""),
   new EditableControl("speed-swim", ["speed"], ""),

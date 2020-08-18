@@ -144,3 +144,8 @@ function setup() {
 }
 
 window.addEventListener("load", setup);
+
+window.addEventListener("beforeunload", function (e) {
+  e.preventDefault();
+  e.returnValue = "";
+});

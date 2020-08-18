@@ -276,6 +276,16 @@ class SumControl extends Control {
   }
 }
 
+class DivideControl extends Control {
+  isBumpable() {
+    return true;
+  }
+  
+  aggregateValuesIn() {
+    this.value = getControlById(this.aggregate[0]).value / getControlById(this.aggregate[1]).value + this.getBump();
+  }
+}
+
 class MapControl extends Control {
   constructor(id, groups, value, control, map) {
     super(id, groups, value, [control]);
