@@ -61,6 +61,7 @@ function importJsonContent(content) {
     
     let img = new Image();
     img.onload = function() {
+      ctx.clearRect(0, 0, img.width, img.height);
       ctx.drawImage(img, 0, 0);
     };
     img.src = packed.scribbles[pageId];
