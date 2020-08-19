@@ -7,10 +7,8 @@ function updateControlEventHandler(e) {
     } else {
       control.value = parseInt(e.target.value);
     }
-  } else if (e.target.value != "") {
+  } else  {
     control.value = e.target.value;
-  } else {
-    return;
   }
   
   control.update();
