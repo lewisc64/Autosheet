@@ -341,3 +341,104 @@
   left: 23.6%;
   bottom: 16.9%;
 }
+
+.money {
+  left: 9.1%;
+  width: 17.6%;
+}
+
+#money-copper {
+  bottom: 12.1%;
+}
+
+#money-silver {
+  bottom: 10.3%;
+}
+
+#money-gold {
+  bottom: 8.5%;
+}
+
+#money-platinum {
+  bottom: 6.7%;
+}
+
+.experience {
+  bottom: 6.4%;
+}
+
+#experience {
+  left: 30.8%;
+  width: 24.5%
+}
+
+#experience-next-level {
+  left: 57.3%;
+  width: 10.1%
+}
+
+.spell-level {
+  width: 3%;
+}
+
+.spell-level-0 {
+  bottom: 87.45%;
+}
+
+.spell-level-1 {
+  bottom: 85.37%;
+}
+
+.spell-level-2 {
+  bottom: 83.05%;
+}
+
+.spell-level-3 {
+  bottom: 80.9%;
+}
+
+.spell-level-4 {
+  bottom: 78.6%;
+}
+
+.spell-level-5 {
+  bottom: 76.5%;
+}
+
+.spell-level-6 {
+  bottom: 74.2%;
+}
+
+.spell-level-7 {
+  bottom: 72.06%;
+}
+
+.spell-level-8 {
+  bottom: 69.74%;
+}
+
+.spell-level-9 {
+  bottom: 67.6%
+}
+
+.spell-level-known {
+  left: 71.4%;
+}
+
+.spell-level-save-dc {
+  left: 76.35%;
+}
+
+.spell-level-per-day {
+  left: 86.62%;
+}
+
+.spell-level-bonus {
+  left: 91.85%;
+}
+
+#spell-conditional-modifiers {
+  bottom: 64%;
+  left: 71.3%;
+  width: 23.3%
+}

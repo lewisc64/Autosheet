@@ -94,7 +94,7 @@ page1 = [
   new EditableControl("initiative-misc-modifier", ["initiative"], 0),
   new SumControl("initiative", ["initiative"], 0, ["initiative-dex-modifier", "initiative-misc-modifier"]),
   
-  new EditableControl("ac-armor-bonus", ["ac"], 0),
+  new CopyControl("ac-armor-bonus", ["ac"], 0, ["ac-item-total-bonus"]),
   new EditableControl("ac-shield-bonus", ["ac"], 0),
   new CopyControl("ac-dex-modifier", ["ac"], 0, ["dex-ability-modifier"]),
   new MapControl("ac-size-modifier", ["ac"], 0, "size", sizeModifierMap),
@@ -217,13 +217,14 @@ let page2 = [];
 for (let i = 1; i <= 5; i++) {
   let prefix = "ac-item-" + i + "-";
   for (let type of ["name", "bonus", "type", "check-penalty", "spell-failure", "weight", "properties"]) {
-    page2.push(new EditableControl(prefix + type, ["ac-item", "ac-item-" + i, "ac-item-" + type], ["bonus", "check-penalty", "weight"].indexOf(type) == -1 ? "" : 0));
+    page2.push(new EditableControl(prefix + type, ["ac-item", "ac-item-" + i, "ac-item-" + type], ["bonus", "check-penalty", "spell-failure", "weight"].indexOf(type) == -1 ? "" : 0));
   }
 }
 
 page2.push(...[
   new SumControl("ac-item-total-bonus", ["ac-item", "ac-item-total", "ac-item-bonus"], 0, ["ac-item-1-bonus", "ac-item-2-bonus", "ac-item-3-bonus", "ac-item-4-bonus", "ac-item-5-bonus"]),
   new SumControl("ac-item-total-check-penalty", ["ac-item", "ac-item-total", "ac-item-check-penalty"], 0, ["ac-item-1-check-penalty", "ac-item-2-check-penalty", "ac-item-3-check-penalty", "ac-item-4-check-penalty", "ac-item-5-check-penalty"]),
+  new SumControl("ac-item-total-spell-failure", ["ac-item", "ac-item-total", "ac-item-spell-failure"], 0, ["ac-item-1-spell-failure", "ac-item-2-spell-failure", "ac-item-3-spell-failure", "ac-item-4-spell-failure", "ac-item-5-spell-failure"]),
   new SumControl("ac-item-total-weight", ["ac-item", "ac-item-total", "ac-item-weight"], 0, ["ac-item-1-weight", "ac-item-2-weight", "ac-item-3-weight", "ac-item-4-weight", "ac-item-5-weight"]),
 ]);
 
@@ -267,6 +268,30 @@ for (let i = 1; i <= 12; i++) {
 for (let i = 1; i <= 20; i++) {
   page2.push(new EditableControl("special-ability-" + i, ["special-abilities"], ""));
 }
+
+page2.push(...[
+  new EditableControl("money-copper", ["money"], ""),
+  new EditableControl("money-silver", ["money"], ""),
+  new EditableControl("money-gold", ["money"], ""),
+  new EditableControl("money-platinum", ["money"], ""),
+
+  new EditableControl("experience", ["experience"], ""),
+  new EditableControl("experience-next-level", ["experience"], ""),
+]);
+
+for (let i = 0; i <= 9; i++) {
+  let prefix = "spell-level-" + i;
+  page2.push(...[
+    new EditableControl(prefix + "-known", [prefix, "spell-level", "spell-level-known"], ""),
+    new EditableControl(prefix + "-save-dc", [prefix, "spell-level", "spell-level-save-dc"], ""),
+    new EditableControl(prefix + "-per-day", [prefix, "spell-level", "spell-level-per-day"], ""),
+  ]);
+  if (i >= 1) {
+    page2.push(new EditableControl(prefix + "-bonus", [prefix, "spell-level", "spell-level-bonus"], ""));
+  }
+}
+
+page2.push(new EditableControl("spell-conditional-modifiers", [], ""));
 
 for (let control of page1) {
   control.groups.push("page-1");

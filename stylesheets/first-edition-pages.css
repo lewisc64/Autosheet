@@ -25,7 +25,14 @@
   position: absolute;
   height: 1.2%;
   background: #EEEEEE;
-  /*background: #00000000;*/
   font-family: "Lucida Handwriting", cursive;
   border: none;
+}
+
+.bump-dialog {
+  background-color: var(--theme-color);
+}
+
+.bump-dialog > button {
+  margin: 0.2rem;
 }

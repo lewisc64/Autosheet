@@ -1,7 +1,14 @@
+:root {
+  --theme-color: #CC6666;
+  --theme-color-highlight: #EE6666;
+  --theme-color-text: white;
+  --background-color: #EEEEEE;
+}
+
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: #EEEEEE;
+  background-color: var(--background-color);
   text-align: center;
 }
 
@@ -10,10 +17,10 @@ body {
   top: 0;
   left: 0;
   z-index: 20;
-  background-color: #CC6666;
+  background-color: var(--theme-color);
   padding: 0.5rem;
   font-weight: bold;
-  color: white;
+  color: var(--theme-color-text);
   text-align: left;
 }
 
@@ -24,18 +31,21 @@ body {
 }
 
 #toolbar > button {
-  border: none;
   padding: 0.5em;
-  background-color: #EE6666;
-  color: white;
 }
 
-#toolbar > button:hover {
+button {
+  border: none;
+  background-color: var(--theme-color-highlight);
+  color: var(--theme-color-text);
+}
+
+button:hover {
   filter: brightness(105%);
   cursor: pointer;
 }
 
-#toolbar > button:active {
+button:active {
   filter: brightness(95%);
 }
 
