@@ -62,9 +62,9 @@ page1 = [
   new EditableControl("eyes", [], ""),
   
   new StaticValueControl("speed-feet-per-square", ["speed"], 5),
-  new EditableControl("speed", ["speed"], ""),
+  new EditableControl("speed", ["speed"], 0),
   new DivideControl("speed-squares", ["speed"], 0, ["speed", "speed-feet-per-square"]),
-  new EditableControl("speed-with-armor", ["speed"], ""),
+  new EditableControl("speed-with-armor", ["speed"], 0),
   new DivideControl("speed-squares-with-armor", ["speed"], 0, ["speed-with-armor", "speed-feet-per-square"]),
   new EditableControl("speed-fly", ["speed"], ""),
   new EditableControl("speed-fly-maneuverability", ["speed"], ""),
@@ -256,9 +256,9 @@ page2.push(...[
   new MultiplyControl("load-medium", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-medium-multiplier"], 0),
   new MultiplyControl("load-light", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-light-multiplier"], 0),
   
-  new MultiplyControl("load-lift-over-head", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-lift-over-head-multiplier"]),
-  new MultiplyControl("load-lift-off-ground", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-lift-off-ground-multiplier"]),
-  new MultiplyControl("load-drag-push", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-drag-push-multiplier"]),
+  new MultiplyControl("load-lift-over-head", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-lift-over-head-multiplier"], 0),
+  new MultiplyControl("load-lift-off-ground", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-lift-off-ground-multiplier"], 0),
+  new MultiplyControl("load-drag-push", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-drag-push-multiplier"], 0),
 ]);
 
 for (let i = 1; i <= 12; i++) {

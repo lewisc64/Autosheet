@@ -1,15 +1,16 @@
 function updateControlEventHandler(e) {
-  
-  if (e.target.value == "") {
-    return;
-  }
-  
   let control = getControlById(e.target.id);
   
   if (typeof control.value == "number") {
-    control.value = parseInt(e.target.value);
-  } else {
+    if (e.target.value == "") {
+      control.value = 0;
+    } else {
+      control.value = parseInt(e.target.value);
+    }
+  } else if (e.target.value != "") {
     control.value = e.target.value;
+  } else {
+    return;
   }
   
   control.update();
