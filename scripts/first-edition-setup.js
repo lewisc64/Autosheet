@@ -63,9 +63,9 @@ page1 = [
   
   new StaticValueControl("speed-feet-per-square", ["speed"], 5),
   new EditableControl("speed", ["speed"], 0),
-  new DivideControl("speed-squares", ["speed"], 0, ["speed", "speed-feet-per-square"]),
+  new DivideControl("speed-squares", ["speed"], 0, ["speed", "speed-feet-per-square"], 0),
   new EditableControl("speed-with-armor", ["speed"], 0),
-  new DivideControl("speed-squares-with-armor", ["speed"], 0, ["speed-with-armor", "speed-feet-per-square"]),
+  new DivideControl("speed-squares-with-armor", ["speed"], 0, ["speed-with-armor", "speed-feet-per-square"], 0),
   new EditableControl("speed-fly", ["speed"], ""),
   new EditableControl("speed-fly-maneuverability", ["speed"], ""),
   new EditableControl("speed-swim", ["speed"], ""),
