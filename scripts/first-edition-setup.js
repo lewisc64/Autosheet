@@ -1,6 +1,5 @@
 function prepareReplacement(control) {
-  console.log(control);
-  control.id = control.id + "-obscure";
+  control.id = control.id + "-" + parseInt(Math.random() * 10000);
   control.visible = false;
   return control.id;
 }
