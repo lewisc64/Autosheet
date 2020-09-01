@@ -1,3 +1,19 @@
+function prepareReplacement(control) {
+  console.log(control);
+  control.id = control.id + "-obscure";
+  control.visible = false;
+  return control.id;
+}
+
+function getControlInList(controls, id) {
+  for (let control of controls) {
+    if (control.id == id) {
+      return control;
+    }
+  }
+  return null;
+}
+
 let sizeModifierMap = {
   "F": 8,
   "D": 4,
@@ -260,6 +276,32 @@ page2.push(...[
   new MultiplyControl("load-lift-off-ground", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-lift-off-ground-multiplier"], 0),
   new MultiplyControl("load-drag-push", ["load"], 0, ["load-heavy-true", "load-size-multiplier", "load-drag-push-multiplier"], 0),
 ]);
+
+page2.push(...[
+  new StaticValueControl("max-dex-modifier-light-load", ["load"], 99999999999999),
+  new StaticValueControl("max-dex-modifier-medium-load", ["load"], 3),
+  new StaticValueControl("max-dex-modifier-heavy-load", ["load"], 1),
+]);
+
+let dexModifierLoadControls = [
+  new LessThanOrEqualControl("load-is-light", ["load"], 0, ["gear-total-weight", "load-light"]),
+  new GreaterThanControl("load-is-medium", ["load"], 0, ["gear-total-weight", "load-light"]),
+  new GreaterThanControl("load-is-heavy", ["load"], 0, ["gear-total-weight", "load-medium"]),
+  new NotControl("load-is-not-heavy", ["load"], 0, ["load-is-heavy"]),
+  new MultiplyControl("load-light-dex", ["load"], 0, ["load-is-light", "max-dex-modifier-light-load"]),
+  new MultiplyControl("load-medium-dex", ["load"], 0, ["load-is-medium", "max-dex-modifier-medium-load"]),
+  new MultiplyControl("load-heavy-dex", ["load"], 0, ["load-is-heavy", "max-dex-modifier-heavy-load"]),
+  new MaximumControl("load-max-dex", ["load"], 0, ["load-light-dex", "load-medium-dex", "load-heavy-dex"]),
+];
+
+dexModifierLoadControls.push(new MultiplyControl("load-is-medium", ["load"], 0, [prepareReplacement(getControlInList(dexModifierLoadControls, "load-is-medium")), "load-is-not-heavy"]));
+
+for (let control of dexModifierLoadControls) {
+  control.visible = false;
+  page2.push(control);
+}
+
+page1.push(new MinimumControl("dex-ability-modifier", ["ability", "ability-modifier"], 0, [prepareReplacement(getControlInList(page1, "dex-ability-modifier")), "load-max-dex"]));
 
 for (let i = 1; i <= 12; i++) {
   page2.push(new EditableControl("feat-" + i, ["feats"], ""));

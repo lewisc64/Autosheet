@@ -347,3 +347,60 @@ class MapControl extends Control {
     this.value = this.map[getControlById(this.aggregate[0]).value];
   }
 }
+
+class MinimumControl extends Control {
+  isBumpable() {
+    return true;
+  }
+  
+  aggregateValuesIn() {
+    let min = null;
+    for (let id of this.aggregate) {
+      let value = getControlById(id).value;
+      if (min == null || value < min) {
+        min = value;
+      }
+    }
+    this.value = (min == null ? 0 : min) + this.getBump();
+  }
+}
+
+class MaximumControl extends MinimumControl {
+  isBumpable() {
+    return true;
+  }
+  
+  aggregateValuesIn() {
+    let max = null;
+    for (let id of this.aggregate) {
+      let value = getControlById(id).value;
+      if (max == null || value > max) {
+        max = value;
+      }
+    }
+    this.value = (max == null ? 0 : max) + this.getBump();
+  }
+}
+
+class GreaterThanControl extends Control {
+  constructor(id, groups, value, aggregate=[]) {
+    super(id, groups, value, aggregate);
+    this.visible = false;
+  }
+  
+  aggregateValuesIn() {
+    this.value = getControlById(this.aggregate[0]).value > getControlById(this.aggregate[1]).value ? 1 : 0;
+  }
+}
+
+class LessThanOrEqualControl extends GreaterThanControl {
+  aggregateValuesIn() {
+    this.value = getControlById(this.aggregate[0]).value <= getControlById(this.aggregate[1]).value ? 1 : 0;
+  }
+}
+
+class NotControl extends GreaterThanControl {
+  aggregateValuesIn() {
+    this.value = getControlById(this.aggregate[0]).value == 0 ? 1 : 0;
+  }
+}
