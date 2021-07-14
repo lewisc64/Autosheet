@@ -335,8 +335,8 @@ page2.push(new EditableControl("spell-domains-speciality", ["spell-text-area"], 
 
 let spellLineCounts = [8, 8, 7, 6, 5, 4, 4, 4, 3, 2];
 for (let i = 0; i < spellLineCounts.length; i++) {
-  for (let j = 0; j <= spellLineCounts[i]; j++) {
-    page2.push(new EditableControl("spell-text-" + i + "-" + (j + 1), ["spell-text-area"], "", true));
+  for (let j = 1; j <= spellLineCounts[i]; j++) {
+    page2.push(new EditableControl("spell-text-" + i + "-" + j, ["spell-text-area"], "", true));
   }
 }
 
