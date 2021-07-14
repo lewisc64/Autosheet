@@ -56,8 +56,6 @@ for (let key in sizeModifierMap) {
   sizesMap[key] = key;
 };
 
-console.log(sizesMap);
-
 page1 = [
   new PageTitleFakeControl("title", [], "Autosheet", ["name"]),
   
@@ -333,6 +331,14 @@ for (let i = 0; i <= 9; i++) {
 }
 
 page2.push(new EditableControl("spell-conditional-modifiers", [], ""));
+page2.push(new EditableControl("spell-domains-speciality", ["spell-text-area"], ""));
+
+let spellLineCounts = [8, 8, 7, 6, 5, 4, 4, 4, 3, 2];
+for (let i = 0; i < spellLineCounts.length; i++) {
+  for (let j = 0; j <= spellLineCounts[i]; j++) {
+    page2.push(new EditableControl("spell-text-" + i + "-" + (j + 1), ["spell-text-area"], "", true));
+  }
+}
 
 for (let control of page1) {
   control.groups.push("page-1");

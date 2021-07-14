@@ -25,13 +25,14 @@ function updateAllControls() {
 }
 
 class Control {
-  constructor(id, groups, value, aggregate=[]) {
+  constructor(id, groups, value, aggregate=[], small=false) {
     this.id = id;
     this.groups = groups;
     this.value = value;
     this.aggregate = aggregate;
     this.visible = true;
     this.editable = false;
+    this.small = small;
     this.page = 1;
     this.bump = 0;
     
@@ -83,7 +84,12 @@ class Control {
     }
     
     let setFontSize = (elem) => {
-      elem.style["font-size"] = elem.clientHeight * 0.6 + "px";
+      if (this.small) {
+        elem.style["font-size"] = elem.clientHeight * 0.8 + "px";
+      }
+      else {
+        elem.style["font-size"] = elem.clientHeight * 0.6 + "px";
+      }
     }
     
     let bumpDialogOpen = false;
@@ -183,8 +189,8 @@ class Control {
 }
 
 class EditableControl extends Control {
-  constructor(id, groups, value) {
-    super(id, groups, value);
+  constructor(id, groups, value, small=false) {
+    super(id, groups, value, [], small);
     this.editable = true;
   }
 }

@@ -180,6 +180,15 @@
   width: 38.7%;
 }
 
+.spell-text-area {
+  left: 71.2%;
+  width: 23.7%;
+}
+
+.spell-small-text {
+  background: #FFAAAA;
+}
+
 #feat-1 {
   bottom: 72.8%;
 }
@@ -441,4 +450,213 @@
   bottom: 64%;
   left: 71.3%;
   width: 23.3%
+}
+
+#spell-domains-speciality {
+  bottom: 59.9%;
+}
+
+#spell-text-0-1 {
+  bottom: 57.740796772566824%;
+  height: 0.7%;
+}
+#spell-text-0-2 {
+  bottom: 56.858295511850734%;
+  height: 0.7%;
+}
+#spell-text-0-3 {
+  bottom: 55.97579425113465%;
+  height: 0.7%;
+}
+#spell-text-0-4 {
+  bottom: 55.09329299041856%;
+  height: 0.7%;
+}
+#spell-text-0-5 {
+  bottom: 54.21079172970248%;
+  height: 0.7%;
+}
+#spell-text-0-6 {
+  bottom: 53.32829046898639%;
+  height: 0.7%;
+}
+#spell-text-0-7 {
+  bottom: 52.445789208270305%;
+  height: 0.7%;
+}
+#spell-text-0-8 {
+  bottom: 51.563287947554215%;
+  height: 0.7%;
+}
+#spell-text-1-1 {
+  bottom: 49.722642460917804%;
+  height: 0.7%;
+}
+#spell-text-1-2 {
+  bottom: 48.84014120020172%;
+  height: 0.7%;
+}
+#spell-text-1-3 {
+  bottom: 47.95763993948563%;
+  height: 0.7%;
+}
+#spell-text-1-4 {
+  bottom: 47.07513867876955%;
+  height: 0.7%;
+}
+#spell-text-1-5 {
+  bottom: 46.19263741805346%;
+  height: 0.7%;
+}
+#spell-text-1-6 {
+  bottom: 45.31013615733737%;
+  height: 0.7%;
+}
+#spell-text-1-7 {
+  bottom: 44.427634896621285%;
+  height: 0.7%;
+}
+#spell-text-1-8 {
+  bottom: 43.545133635905195%;
+  height: 0.7%;
+}
+#spell-text-2-1 {
+  bottom: 41.60363086232981%;
+  height: 0.7%;
+}
+#spell-text-2-2 {
+  bottom: 40.74634392334846%;
+  height: 0.7%;
+}
+#spell-text-2-3 {
+  bottom: 39.88905698436712%;
+  height: 0.7%;
+}
+#spell-text-2-4 {
+  bottom: 39.08219868885527%;
+  height: 0.7%;
+}
+#spell-text-2-5 {
+  bottom: 38.22491174987393%;
+  height: 0.7%;
+}
+#spell-text-2-6 {
+  bottom: 37.36762481089259%;
+  height: 0.7%;
+}
+#spell-text-2-7 {
+  bottom: 36.51033787191125%;
+  height: 0.7%;
+}
+#spell-text-3-1 {
+  bottom: 34.69490670700959%;
+  height: 0.7%;
+}
+#spell-text-3-2 {
+  bottom: 33.83761976802824%;
+  height: 0.7%;
+}
+#spell-text-3-3 {
+  bottom: 32.9803328290469%;
+  height: 0.7%;
+}
+#spell-text-3-4 {
+  bottom: 32.12304589006556%;
+  height: 0.7%;
+}
+#spell-text-3-5 {
+  bottom: 31.26575895108422%;
+  height: 0.7%;
+}
+#spell-text-3-6 {
+  bottom: 30.408472012102877%;
+  height: 0.7%;
+}
+#spell-text-4-1 {
+  bottom: 28.49218356026223%;
+  height: 0.7%;
+}
+#spell-text-4-2 {
+  bottom: 27.63489662128089%;
+  height: 0.7%;
+}
+#spell-text-4-3 {
+  bottom: 26.77760968229955%;
+  height: 0.7%;
+}
+#spell-text-4-4 {
+  bottom: 25.920322743318206%;
+  height: 0.7%;
+}
+#spell-text-4-5 {
+  bottom: 25.063035804336867%;
+  height: 0.7%;
+}
+#spell-text-5-1 {
+  bottom: 23.19717599596571%;
+  height: 0.7%;
+}
+#spell-text-5-2 {
+  bottom: 22.33988905698437%;
+  height: 0.7%;
+}
+#spell-text-5-3 {
+  bottom: 21.482602118003026%;
+  height: 0.7%;
+}
+#spell-text-5-4 {
+  bottom: 20.625315179021687%;
+  height: 0.7%;
+}
+#spell-text-6-1 {
+  bottom: 18.860312657589514%;
+  height: 0.7%;
+}
+#spell-text-6-2 {
+  bottom: 18.00302571860817%;
+  height: 0.7%;
+}
+#spell-text-6-3 {
+  bottom: 17.14573877962683%;
+  height: 0.7%;
+}
+#spell-text-6-4 {
+  bottom: 16.28845184064549%;
+  height: 0.7%;
+}
+#spell-text-7-1 {
+  bottom: 14.473020675743824%;
+  height: 0.7%;
+}
+#spell-text-7-2 {
+  bottom: 13.615733736762483%;
+  height: 0.7%;
+}
+#spell-text-7-3 {
+  bottom: 12.75844679778114%;
+  height: 0.7%;
+}
+#spell-text-7-4 {
+  bottom: 11.901159858799799%;
+  height: 0.7%;
+}
+#spell-text-8-1 {
+  bottom: 10.085728693898135%;
+  height: 0.7%;
+}
+#spell-text-8-2 {
+  bottom: 9.228441754916794%;
+  height: 0.7%;
+}
+#spell-text-8-3 {
+  bottom: 8.371154815935451%;
+  height: 0.7%;
+}
+#spell-text-9-1 {
+  bottom: 6.454866364094807%;
+  height: 0.7%;
+}
+#spell-text-9-2 {
+  bottom: 5.597579425113465%;
+  height: 0.7%;
 }
